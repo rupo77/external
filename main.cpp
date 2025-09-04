@@ -37,39 +37,40 @@ std::string GetExecutableDir()
 
 int main()
 {
+    print_frostware_banner();
     if (!IsGameRunning(L"Roblox"))
     {
-        log("Roblox not found!", 2);
-        log("Waiting for Roblox...", 0);
+        log("Roblox is not running!", 2);
+        log("Please start Roblox and wait...", 0);
         while (!IsGameRunning(L"Roblox"))
         {
             std::this_thread::sleep_for(std::chrono::milliseconds(1000));
         }
     }
 
-    log("Roblox found!", 1);
+    log("Roblox detected successfully!", 1);
 
-    log("Attaching to Roblox...", 0);
+    log("Connecting to Roblox process...", 3);
     if (!Memory->attachToProcess("RobloxPlayerBeta.exe"))
     {
-        log("Failed to attach dm rupo!", 2);
+        log("Failed to connect to Roblox process!", 2);
         log("Press any key to exit...", 0);
         std::cin.get();
         return -1;
     }
 
-    log("Succesfully attached FrostWare!", 1);
+    log("FrostWare successfully injected!", 3);
 
     if (Memory->getProcessId("RobloxPlayerBeta.exe") == 0)
     {
-        log("Failed to get Roblox's PID!", 2);
+        log("Unable to retrieve Roblox process ID!", 2);
         log("Press any key to exit...", 0);
         std::cin.get();
         return -1;
     }
 
-    log(std::string("Roblox PID -> " + std::to_string(Memory->getProcessId())), 1);
-    log(std::string("Roblox Base Address -> 0x" + toHexString(std::to_string(Memory->getBaseAddress()), false, true)), 1);
+    log(std::string("Process ID: " + std::to_string(Memory->getProcessId())), 3);
+    log(std::string("Base Address: 0x" + toHexString(std::to_string(Memory->getBaseAddress()), false, true)), 3);
 
     Globals::executablePath = GetExecutableDir();
 
@@ -78,7 +79,7 @@ int main()
     struct stat buffer;
     if (stat(fontsFolderPath.c_str(), &buffer) != 0)
     {
-        log("Failed to find fonts folder!", 2);
+        log("Fonts directory not found! Please ensure fonts folder exists.", 2);
         log("Press any key to exit...", 0);
         std::cin.get();
         return -1;
@@ -121,14 +122,14 @@ int main()
 
     Globals::Roblox::lastPlaceID = Memory->read<int>(Globals::Roblox::DataModel.address + offsets::PlaceId);;
 
-    log(std::string("DataModel -> 0x" + toHexString(std::to_string(Globals::Roblox::DataModel.address), false, true)), 1);
-    log(std::string("VisualEngine -> 0x" + toHexString(std::to_string(Globals::Roblox::VisualEngine), false, true)), 1);
+    log(std::string("Game DataModel: 0x" + toHexString(std::to_string(Globals::Roblox::DataModel.address), false, true)), 3);
+    log(std::string("Rendering Engine: 0x" + toHexString(std::to_string(Globals::Roblox::VisualEngine), false, true)), 3);
 
-    log(std::string("Workspace -> 0x" + toHexString(std::to_string(Globals::Roblox::Workspace.address), false, true)), 1);
-    log(std::string("Players -> 0x" + toHexString(std::to_string(Globals::Roblox::Players.address), false, true)), 1);
-    log(std::string("Camera -> 0x" + toHexString(std::to_string(Globals::Roblox::Camera.address), false, true)), 1);
+    log(std::string("Game Workspace: 0x" + toHexString(std::to_string(Globals::Roblox::Workspace.address), false, true)), 3);
+    log(std::string("Players Service: 0x" + toHexString(std::to_string(Globals::Roblox::Players.address), false, true)), 3);
+    log(std::string("Game Camera: 0x" + toHexString(std::to_string(Globals::Roblox::Camera.address), false, true)), 3);
 
-    log(std::string("Logged in as " + Globals::Roblox::LocalPlayer.Name()), 1);
+    log(std::string("Welcome, " + Globals::Roblox::LocalPlayer.Name() + "! FrostWare is ready."), 3);
 
     std::thread(ShowImgui).detach();
     std::thread(CachePlayers).detach();

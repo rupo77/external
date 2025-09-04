@@ -21,6 +21,13 @@
 #define BRIGHT_CYAN     "\033[96m"
 #define BRIGHT_WHITE    "\033[97m"
 
+// FrostWare Theme Colors
+#define FROST_BLUE      "\033[38;2;100;149;237m"  // Cornflower blue
+#define ICE_BLUE        "\033[38;2;173;216;230m"  // Light blue
+#define FROST_CYAN      "\033[38;2;0;191;255m"    // Deep sky blue
+#define SNOW_WHITE      "\033[38;2;248;248;255m"  // Ghost white
+#define FROST_PURPLE    "\033[38;2;147;112;219m"  // Medium slate blue
+
 // Styles
 #define BOLD        "\033[1m"
 #define DIM         "\033[2m"
