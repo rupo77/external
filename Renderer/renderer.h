@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #pragma comment (lib, "d3d11.lib")
 
@@ -19,6 +19,7 @@
 #include "imgui/imgui_impl_win32.h"
 #include "imgui/imgui_impl_dx11.h"
 #include "imgui/KeyBind.h"
+#include "imgui/imgui_settings.h"
 
 #include "font/IconsFontAwesome6.h"
 
@@ -128,6 +129,67 @@ void ShowImgui()
 
     ImGuiIO& io = ImGui::GetIO();
     ImGui::StyleColorsDark();
+    ImGuiStyle& style = ImGui::GetStyle();
+
+    // FrostWare Theme Colors (Frost Blue Accents)
+    style.Colors[ImGuiCol_Text] = ImVec4(1.00f, 1.00f, 1.00f, 1.00f);
+    style.Colors[ImGuiCol_TextDisabled] = ImVec4(0.32f, 0.31f, 0.41f, 1.00f);
+    style.Colors[ImGuiCol_WindowBg] = ImVec4(0.08f, 0.12f, 0.18f, 0.86f);  // Frost blue tint
+    style.Colors[ImGuiCol_ChildBg] = ImVec4(0.10f, 0.14f, 0.20f, 0.00f);   // Subtle frost blue
+    style.Colors[ImGuiCol_PopupBg] = ImVec4(0.08f, 0.12f, 0.18f, 0.86f);   // Frost blue tint
+    style.Colors[ImGuiCol_Border] = ImVec4(0.39f, 0.58f, 0.93f, 0.78f);    // Frost blue border
+    style.Colors[ImGuiCol_BorderShadow] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
+    style.Colors[ImGuiCol_FrameBg] = ImVec4(0.12f, 0.16f, 0.22f, 1.00f);   // Frost blue frame
+    style.Colors[ImGuiCol_FrameBgHovered] = ImVec4(0.16f, 0.20f, 0.28f, 1.00f);
+    style.Colors[ImGuiCol_FrameBgActive] = ImVec4(0.20f, 0.24f, 0.32f, 1.00f);
+    style.Colors[ImGuiCol_TitleBg] = ImVec4(0.08f, 0.12f, 0.18f, 1.00f);   // Frost blue title
+    style.Colors[ImGuiCol_TitleBgActive] = ImVec4(0.12f, 0.18f, 0.26f, 1.00f);
+    style.Colors[ImGuiCol_TitleBgCollapsed] = ImVec4(0.08f, 0.12f, 0.18f, 0.75f);
+    style.Colors[ImGuiCol_MenuBarBg] = ImVec4(0.08f, 0.12f, 0.18f, 1.00f);
+    style.Colors[ImGuiCol_ScrollbarBg] = ImVec4(0.08f, 0.12f, 0.18f, 1.00f);
+    style.Colors[ImGuiCol_ScrollbarGrab] = ImVec4(0.39f, 0.58f, 0.93f, 1.00f);  // Frost blue
+    style.Colors[ImGuiCol_ScrollbarGrabHovered] = ImVec4(0.47f, 0.66f, 1.00f, 1.00f);
+    style.Colors[ImGuiCol_ScrollbarGrabActive] = ImVec4(0.55f, 0.74f, 1.00f, 1.00f);
+    style.Colors[ImGuiCol_CheckMark] = ImVec4(0.68f, 0.85f, 0.90f, 1.00f);  // Ice blue checkmark
+    style.Colors[ImGuiCol_SliderGrab] = ImVec4(0.39f, 0.58f, 0.93f, 1.00f);
+    style.Colors[ImGuiCol_SliderGrabActive] = ImVec4(0.68f, 0.85f, 0.90f, 1.00f);
+    style.Colors[ImGuiCol_Button] = ImVec4(0.12f, 0.16f, 0.22f, 1.00f);        // Frost blue button
+    style.Colors[ImGuiCol_ButtonHovered] = ImVec4(0.16f, 0.22f, 0.30f, 1.00f);  // Lighter frost blue
+    style.Colors[ImGuiCol_ButtonActive] = ImVec4(0.20f, 0.28f, 0.38f, 1.00f);   // Active frost blue
+    style.Colors[ImGuiCol_Header] = ImVec4(0.12f, 0.16f, 0.22f, 1.00f);
+    style.Colors[ImGuiCol_HeaderHovered] = ImVec4(0.16f, 0.22f, 0.30f, 1.00f);
+    style.Colors[ImGuiCol_HeaderActive] = ImVec4(0.20f, 0.28f, 0.38f, 1.00f);
+    style.Colors[ImGuiCol_Separator] = ImVec4(0.39f, 0.58f, 0.93f, 0.78f);      // Frost blue separator
+    style.Colors[ImGuiCol_SeparatorHovered] = ImVec4(0.47f, 0.66f, 1.00f, 1.00f);
+    style.Colors[ImGuiCol_SeparatorActive] = ImVec4(0.55f, 0.74f, 1.00f, 1.00f);
+    style.Colors[ImGuiCol_ResizeGrip] = ImVec4(0.39f, 0.58f, 0.93f, 0.25f);
+    style.Colors[ImGuiCol_ResizeGripHovered] = ImVec4(0.47f, 0.66f, 1.00f, 0.67f);
+    style.Colors[ImGuiCol_ResizeGripActive] = ImVec4(0.55f, 0.74f, 1.00f, 0.95f);
+    style.Colors[ImGuiCol_Tab] = ImVec4(0.12f, 0.16f, 0.22f, 1.00f);
+    style.Colors[ImGuiCol_TabHovered] = ImVec4(0.39f, 0.58f, 0.93f, 0.80f);
+    style.Colors[ImGuiCol_TabActive] = ImVec4(0.39f, 0.58f, 0.93f, 1.00f);
+    style.Colors[ImGuiCol_TabUnfocused] = ImVec4(0.12f, 0.16f, 0.22f, 1.00f);
+    style.Colors[ImGuiCol_TabUnfocusedActive] = ImVec4(0.16f, 0.22f, 0.30f, 1.00f);
+
+    // Pandora styling
+    style.WindowPadding = ImVec2(15.00f, 15.00f);
+    style.FramePadding = ImVec2(8.00f, 4.00f);
+    style.ItemSpacing = ImVec2(8.00f, 8.00f);
+    style.ItemInnerSpacing = ImVec2(8.00f, 6.00f);
+    style.TouchExtraPadding = ImVec2(0.00f, 0.00f);
+    style.ScrollbarSize = 8.0f;
+    style.GrabMinSize = 20;
+    style.WindowBorderSize = 0;
+    style.ChildBorderSize = 1;
+    style.PopupBorderSize = 1;
+    style.FrameBorderSize = 0;
+    style.WindowRounding = 6.0f;
+    style.ChildRounding = 8.0f;
+    style.FrameRounding = 4.0f;
+    style.PopupRounding = 4.0f;
+    style.ScrollbarRounding = 4.0f;
+    style.GrabRounding = 4.0f;
+    style.TabRounding = 4.0f;
 
     ImFontConfig config;
     config.MergeMode = false;
@@ -196,69 +258,115 @@ void ShowImgui()
 
         static int category = 0;
 
-        ImGui::SetNextWindowSize(ImVec2(675, 550));
+        ImGui::SetNextWindowSize(ImVec2(660, 740));
 
         auto character = Globals::Roblox::LocalPlayer.Character();
 
         if (showMenu)
         {
-            ImGui::Begin("FrostWare EXT", NULL, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoSavedSettings);
-
-            if (ImGui::Button("Visuals  " ))
-                category = 0;
+            ImGui::Begin("FROSTWARE", NULL, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoTitleBar);
+            
+            // Header with icons
+            ImDrawList* draw_list = ImGui::GetWindowDrawList();
+            ImVec2 window_pos = ImGui::GetWindowPos();
+            ImVec2 window_size = ImGui::GetWindowSize();
+            
+            // Draw header background
+            draw_list->AddRectFilled(
+                ImVec2(window_pos.x, window_pos.y),
+                ImVec2(window_pos.x + window_size.x, window_pos.y + 60),
+                IM_COL32(28, 29, 32, 220)
+            );
+            
+            // Title
+            ImGui::SetCursorPos(ImVec2(window_size.x - 80, 20));
+            ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 1.0f, 1.0f, 1.0f));
+            ImGui::Text("FROSTWARE");
+            ImGui::PopStyleColor();
+            
+            // Header icons
+            ImGui::SetCursorPos(ImVec2(20, 20));
+            if (ImGui::Button(ICON_FA_EYE "##general", ImVec2(30, 30))) category = 0;
             ImGui::SameLine();
-            if (ImGui::Button("Aimbot  " ))
-                category = 1;
+            if (ImGui::Button(ICON_FA_CROSSHAIRS "##aimbot", ImVec2(30, 30))) category = 1;
             ImGui::SameLine();
-            if (ImGui::Button("Miscellaneous  " ))
-                category = 2;
+            if (ImGui::Button(ICON_FA_WRENCH "##misc", ImVec2(30, 30))) category = 2;
             ImGui::SameLine();
-            if (ImGui::Button("Explorer  " ))
-                explorer = !explorer;
+            if (ImGui::Button(ICON_FA_USERS "##players", ImVec2(30, 30))) playerList = !playerList;
+            
+            ImGui::SetCursorPosY(80);
+            
+            // Left sidebar for categories
+            ImGui::BeginChild("##sidebar", ImVec2(200, window_size.y - 100), true);
+            
+            // Category buttons with icons
+            ImGui::PushStyleVar(ImGuiStyleVar_ButtonTextAlign, ImVec2(0.0f, 0.5f));
+            ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(15, 10));
+            
+            if (ImGui::Button(ICON_FA_EYE " GENERAL", ImVec2(-1, 40))) category = 0;
+            if (ImGui::Button(ICON_FA_CROSSHAIRS " AIMBOT", ImVec2(-1, 40))) category = 1;
+            if (ImGui::Button(ICON_FA_WRENCH " MISCELLANEOUS", ImVec2(-1, 40))) category = 2;
+            
+            ImGui::Separator();
+            
+            if (ImGui::Button(ICON_FA_PALETTE " OTHERS", ImVec2(-1, 40))) category = 3;
+            if (ImGui::Button(ICON_FA_KEYBOARD " Keybind", ImVec2(-1, 40))) { /* Keybind functionality */ }
+            
+            ImGui::PopStyleVar(2);
+            ImGui::EndChild();
+            
             ImGui::SameLine();
-            if (ImGui::Button("Players  " ))
-                playerList = !playerList;
-            ImGui::SameLine();
-            if (ImGui::Button("Configurations  " ))
-                category = 3;
+            
+            // Main content area
+            ImGui::BeginChild("##content", ImVec2(0, 0), true);
 
             switch (category)
             {
-                case 0: // Visuals
+                case 0: // General/Visuals
                 {
+                    ImGui::Text("Checkbox active");
                     ImGui::Checkbox("Team Check", &Options::ESP::TeamCheck);
-                    ImGui::SameLine(540);
-                    ImGui::ColorEdit3("Box Color", Options::ESP::BoxColor, ImGuiColorEditFlags_PickerHueWheel | ImGuiColorEditFlags_NoInputs);
+                    
+                    ImGui::Spacing();
+                    ImGui::Text("Box ESP");
                     ImGui::Checkbox("Box ESP", &Options::ESP::Box);
-                    ImGui::SameLine(540);
-                    ImGui::ColorEdit4("Box Fill Color", Options::ESP::BoxFillColor, ImGuiColorEditFlags_PickerHueWheel | ImGuiColorEditFlags_NoInputs);
+                    ImGui::SameLine();
+                    ImGui::ColorEdit3("##BoxColor", Options::ESP::BoxColor, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel);
+                    
+                    ImGui::Text("Skeleton ESP");
                     ImGui::Checkbox("Skeleton ESP", &Options::ESP::Skeleton);
-                    ImGui::SameLine(540);
-                    ImGui::ColorEdit3("Skeleton Color", Options::ESP::SkeletonColor, ImGuiColorEditFlags_PickerHueWheel | ImGuiColorEditFlags_NoInputs);
-                    ImGui::NewLine();
+                    ImGui::SameLine();
+                    ImGui::ColorEdit3("##SkeletonColor", Options::ESP::SkeletonColor, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel);
+                    
+                    ImGui::Text("Name ESP");
                     ImGui::Checkbox("Name ESP", &Options::ESP::Name);
-                    ImGui::SameLine(540);
-                    ImGui::ColorEdit3("Name Color", Options::ESP::Color, ImGuiColorEditFlags_PickerHueWheel | ImGuiColorEditFlags_NoInputs);
+                    ImGui::SameLine();
+                    ImGui::ColorEdit3("##NameColor", Options::ESP::Color, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel);
+                    
+                    ImGui::Text("Distance ESP");
                     ImGui::Checkbox("Distance ESP", &Options::ESP::Distance);
-                    ImGui::SameLine(540);
-                    ImGui::ColorEdit3("Distance Color", Options::ESP::DistanceColor, ImGuiColorEditFlags_PickerHueWheel | ImGuiColorEditFlags_NoInputs);
+                    ImGui::SameLine();
+                    ImGui::ColorEdit3("##DistanceColor", Options::ESP::DistanceColor, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel);
+                    
+                    ImGui::Text("Health Bar");
                     ImGui::Checkbox("Health Bar", &Options::ESP::Health);
-                    ImGui::Checkbox("Transparency Check", &Options::ESP::TransparencyCheck);
-                    ImGui::NewLine();
-
+                    
+                    ImGui::Text("3D ESP");
                     ImGui::Checkbox("3D ESP", &Options::ESP::ESP3D);
-                    ImGui::SameLine(540);
-                    ImGui::ColorEdit3("3D ESP Color", Options::ESP::ESP3DColor, ImGuiColorEditFlags_PickerHueWheel | ImGuiColorEditFlags_NoInputs);
-                    ImGui::NewLine();
-
+                    ImGui::SameLine();
+                    ImGui::ColorEdit3("##3DColor", Options::ESP::ESP3DColor, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel);
+                    
+                    ImGui::Text("Head Circle");
                     ImGui::Checkbox("Head Circle", &Options::ESP::HeadCircle);
-                    ImGui::SameLine(540);
-                    ImGui::ColorEdit3("Head Color", Options::ESP::HeadCircleColor, ImGuiColorEditFlags_PickerHueWheel | ImGuiColorEditFlags_NoInputs);
-                    ImGui::NewLine();
-
+                    ImGui::SameLine();
+                    ImGui::ColorEdit3("##HeadColor", Options::ESP::HeadCircleColor, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel);
+                    
+                    ImGui::Text("Tracers");
                     ImGui::Checkbox("Tracers", &Options::ESP::Tracers);
-                    ImGui::SameLine(540);
-                    ImGui::ColorEdit3("Tracer Color", Options::ESP::TracerColor, ImGuiColorEditFlags_PickerHueWheel | ImGuiColorEditFlags_NoInputs);
+                    ImGui::SameLine();
+                    ImGui::ColorEdit3("##TracerColor", Options::ESP::TracerColor, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel);
+                    
+                    ImGui::Checkbox("Transparency Check", &Options::ESP::TransparencyCheck);
 
                     ImGui::SliderFloat("Tracer Thickness", &Options::ESP::TracerThickness, 1.0f, 10.0f, "%.1f");
 
@@ -270,62 +378,67 @@ void ShowImgui()
 
                 case 1: // Aimbot
                 {
+                    ImGui::Text("Aimbot");
                     ImGui::Checkbox("Aimbot", &Options::Aimbot::Aimbot);
-
-                    ImGui::SameLine(564);
-                    ImGui::SetNextItemWidth(100);
+                    ImGui::SameLine();
                     KeyBind::KeyBindButton("##AimbotKey", &Options::Aimbot::AimbotKey);
 
+                    ImGui::Text("Team Check");
                     ImGui::Checkbox("Team Check", &Options::Aimbot::TeamCheck);
 
-                    ImGui::SameLine(564);
-
+                    ImGui::Text("Toggle Type");
                     static const char* toggleType[]{ "Hold", "Toggle" };
-                    ImGui::SetNextItemWidth(100);
-                    if(ImGui::Combo("##ToggleType", &Options::Aimbot::ToggleType, toggleType, IM_ARRAYSIZE(toggleType)));
+                    if(ImGui::Combo("##ToggleType", &Options::Aimbot::ToggleType, toggleType, IM_ARRAYSIZE(toggleType)))
                     {
                         Options::Aimbot::Toggled = false;
                         Options::Aimbot::CurrentTarget = RobloxPlayer(0);
                     }
 
+                    ImGui::Text("Dead Check");
                     ImGui::Checkbox("Dead Check", &Options::Aimbot::DownedCheck);
 
-                    ImGui::SameLine(564);
-
+                    ImGui::Text("Aiming Method");
                     static const char* aimingMethods[]{ "Camera", "Mouse" };
-                    ImGui::SetNextItemWidth(100);
                     ImGui::Combo("##AimingMethod", &Options::Aimbot::AimingType, aimingMethods, IM_ARRAYSIZE(aimingMethods));
+
+                    ImGui::Text("Target Bone");
+                    static const char* targetBones[]{ "Head", "HumanoidRootPart", "Left Arm", "Right Arm", "Left Leg", "Right Leg" };
+                    ImGui::Combo("##TargetBone", &Options::Aimbot::TargetBone, targetBones, IM_ARRAYSIZE(targetBones));
 
                     ImGui::Checkbox("Sticky Aim", &Options::Aimbot::StickyAim);
                     ImGui::Checkbox("Transparency Check", &Options::Aimbot::TransparencyCheck);
 
-                    ImGui::SameLine(564);
-
-                    static const char* targetBones[]{ "Head", "HumanoidRootPart", "Left Arm", "Right Arm", "Left Leg", "Right Leg" };
-                    ImGui::SetNextItemWidth(100);
-                    ImGui::Combo("##TargetBone", &Options::Aimbot::TargetBone, targetBones, IM_ARRAYSIZE(targetBones));
-
-                    ImGui::NewLine();
+                    ImGui::Spacing();
                     ImGui::SliderFloat("Smoothness", &Options::Aimbot::Smoothness, 0.f, 1.f, "%.1f");
                     ImGui::SliderFloat("Range (Studs)", &Options::Aimbot::Range, 1.f, 1000.f, "%.0f");
-                    ImGui::NewLine();
                     ImGui::SliderFloat("FOV", &Options::Aimbot::FOV, 10.f, 360.f, "%.0f");
+                    
+                    ImGui::Text("FOV Visual");
                     ImGui::Checkbox("Show FOV", &Options::Aimbot::ShowFOV);
-                    ImGui::ColorEdit3("FOV Color", Options::Aimbot::FOVColor, ImGuiColorEditFlags_PickerHueWheel | ImGuiColorEditFlags_NoInputs);
-                    ImGui::ColorEdit4("FOV Fill Color", Options::Aimbot::FOVFillColor, ImGuiColorEditFlags_PickerHueWheel | ImGuiColorEditFlags_NoInputs);
+                    ImGui::SameLine();
+                    ImGui::ColorEdit3("##FOVColor", Options::Aimbot::FOVColor, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel);
                     
                     break;
-
                 }
-                case 2: // Misc.
+                case 2: // Miscellaneous
                 {
                     ImGui::SliderFloat("Walkspeed", &Options::Misc::Walkspeed, 0.f, 500.f, "%.0f");
                     ImGui::SliderFloat("JumpPower", &Options::Misc::JumpPower, 0.f, 500.f, "%.0f");
                     ImGui::SliderFloat("FOV", &Options::Misc::FOV, 1.f, 120, "%.0f");
                     break;
                 }
-                case 3:
+                case 3: // Others
                 {
+                    ImGui::Text("Color Picker");
+                    static ImVec4 color = ImVec4(0.77f, 0.73f, 1.00f, 1.00f);
+                    ImGui::ColorEdit3("##ColorPicker", (float*)&color, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel);
+                    
+                    ImGui::Text("Keybind");
+                    ImGui::Button("None", ImVec2(100, 25));
+                    
+                    ImGui::Spacing();
+                    ImGui::Text("Configurations");
+                    
                     Globals::configsArray.clear();
                     for (const auto& entry : std::filesystem::directory_iterator(Globals::configsPath))
                     {
@@ -351,10 +464,10 @@ void ShowImgui()
                         ImVec2 rectMin = cursorPos;
                         ImVec2 rectMax = ImVec2(cursorPos.x + labelWidth - 6.f, cursorPos.y + height);
 
-                        ImU32 rectColor = IM_COL32(35, 68, 108, 255);
+                        ImU32 rectColor = IM_COL32(46, 44, 53, 255);
                         ImU32 textColor = IM_COL32(255, 255, 255, 255);
 
-                        ImGui::GetWindowDrawList()->AddRectFilled(rectMin, rectMax, rectColor);
+                        ImGui::GetWindowDrawList()->AddRectFilled(rectMin, rectMax, rectColor, 4.0f);
 
                         ImVec2 textSize = ImGui::CalcTextSize(config.c_str());
                         ImVec2 textPos = ImVec2(
@@ -368,7 +481,7 @@ void ShowImgui()
                         ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(6.f, 6.f));
 
                         std::string loadId = std::string(ICON_FA_RECYCLE) + "##load" + config;
-                        std::string deleteId = std::string(ICON_FA_TRASH) + "##delete" + config;
+                        std::string deleteId = std::string(ICON_FA_XMARK) + "##delete" + config;
 
                         if (ImGui::Button(loadId.c_str(), ImVec2(buttonWidth, height)))
                         {
@@ -397,9 +510,13 @@ void ShowImgui()
                         CreateConfig(std::string(static_cast<std::string>(buf) + ".json"));
 
                     ImGui::SetNextItemWidth(120);
+                    break;
                 }
+                default:
+                    break;
             }
-
+            
+            ImGui::EndChild();
             ImGui::End();
         }
         if (IsGameOnTop("Roblox"))
